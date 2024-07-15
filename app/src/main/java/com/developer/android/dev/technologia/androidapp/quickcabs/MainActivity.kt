@@ -18,11 +18,13 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
+import androidx.navigation.compose.rememberNavController
 import com.developer.android.dev.technologia.androidapp.quickcabs.component.LocationPermissionRequestDialog
 import com.developer.android.dev.technologia.androidapp.quickcabs.core.LocationUtils
 import com.developer.android.dev.technologia.androidapp.quickcabs.extension.hasAllPermission
 import com.developer.android.dev.technologia.androidapp.quickcabs.extension.hasLocationPermission
 import com.developer.android.dev.technologia.androidapp.quickcabs.extension.openAppSetting
+import com.developer.android.dev.technologia.androidapp.quickcabs.presentation.screens.main.MainScreen
 import com.developer.android.dev.technologia.androidapp.quickcabs.ui.theme.QuickCabsTheme
 import com.developer.android.dev.technologia.androidapp.quickcabs.utils.PermissionUtils
 
@@ -36,7 +38,7 @@ class MainActivity : ComponentActivity() {
                    modifier = Modifier.fillMaxSize(),
                    color = MaterialTheme.colorScheme.surface
                ) {
-
+                   MainScreen(navHostController = rememberNavController())
                }
             }
         }
