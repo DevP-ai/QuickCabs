@@ -87,20 +87,20 @@ fun SplashScreen(onTimeout: () -> Unit) {
                     .fillMaxWidth()
                     .height(20.dp),
                 verticalAlignment = Alignment.Bottom,
-                horizontalArrangement = Arrangement.Center
+                horizontalArrangement = Arrangement.Absolute.SpaceBetween
             ) {
                 repeat(15) {
                     Box(
                         modifier = Modifier
                             .size(20.dp)
                             .background(Color.Blue)
-                            .padding(end = 2.dp)
+
                     )
                     Box(
                         modifier = Modifier
                             .size(20.dp)
-                            .background(Color(0xFFFFCC00))
-                            .padding(end = 2.dp)
+                            .background(Color.Yellow)
+
                     )
                 }
             }
@@ -109,20 +109,19 @@ fun SplashScreen(onTimeout: () -> Unit) {
                     .fillMaxWidth()
                     .height(20.dp),
                 verticalAlignment = Alignment.Bottom,
-                horizontalArrangement = Arrangement.Center
+                horizontalArrangement =  Arrangement.Absolute.SpaceBetween
             ) {
                 repeat(15) {
                     Box(
                         modifier = Modifier
                             .size(20.dp)
-                            .background(Color(0xFFFFCC00))
-                            .padding(end = 2.dp)
+                            .background(Color.Yellow)
+
                     )
                     Box(
                         modifier = Modifier
                             .size(20.dp)
                             .background(Color.Blue)
-                            .padding(end = 2.dp)
                     )
                 }
             }
