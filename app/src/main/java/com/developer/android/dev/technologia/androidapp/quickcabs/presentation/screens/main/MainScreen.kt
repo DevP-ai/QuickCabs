@@ -7,12 +7,14 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import com.developer.android.dev.technologia.androidapp.quickcabs.presentation.screens.Home.HomeScreen
+import com.developer.android.dev.technologia.androidapp.quickcabs.presentation.screens.Home.LocationSearchScreen
 import com.developer.android.dev.technologia.androidapp.quickcabs.presentation.screens.auth.AuthScreen
 import com.developer.android.dev.technologia.androidapp.quickcabs.presentation.screens.auth.EmailScreen
 import com.developer.android.dev.technologia.androidapp.quickcabs.presentation.screens.auth.MailOptionScreen
 import com.developer.android.dev.technologia.androidapp.quickcabs.presentation.screens.auth.OTPScreen
 import com.developer.android.dev.technologia.androidapp.quickcabs.presentation.screens.auth.PhoneNumberScreen
 import com.developer.android.dev.technologia.androidapp.quickcabs.presentation.screens.auth.UserNameScreen
+import com.developer.android.dev.technologia.androidapp.quickcabs.presentation.screens.profile.ProfileScreen
 
 @Composable
 fun MainScreen(
@@ -20,7 +22,7 @@ fun MainScreen(
 ) {
     NavHost(
         navController = navHostController,
-        startDestination = "UserNameScreen") {
+        startDestination = "HomeScreen") {
         composable("AuthScreen"){ AuthScreen(navHostController = navHostController)}
         composable("PhoneNumberScreen"){ PhoneNumberScreen(navHostController=navHostController)}
         composable("OTPScreen"){ OTPScreen(navHostController = navHostController)}
@@ -28,5 +30,7 @@ fun MainScreen(
         composable("EmailScreen"){ EmailScreen(navHostController = navHostController) }
         composable("UserNameScreen"){ UserNameScreen(navHostController = navHostController)}
         composable("HomeScreen"){ HomeScreen(navHostController = navHostController)}
+        composable("ProfileScreen"){ ProfileScreen(navHostController = navHostController)}
+        composable("LocationSearchScreen"){ LocationSearchScreen(navHostController = navHostController)}
     }
 }
