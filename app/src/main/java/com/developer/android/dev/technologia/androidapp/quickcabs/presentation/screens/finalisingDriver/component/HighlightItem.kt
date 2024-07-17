@@ -1,4 +1,4 @@
-package com.developer.android.dev.technologia.androidapp.quickcabs.presentation.finalisingDriver.component
+package com.developer.android.dev.technologia.androidapp.quickcabs.presentation.screens.finalisingDriver.component
 
 import androidx.annotation.DrawableRes
 import androidx.compose.foundation.Image

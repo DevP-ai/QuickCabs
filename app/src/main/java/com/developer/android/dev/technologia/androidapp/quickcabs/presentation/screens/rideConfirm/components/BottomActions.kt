@@ -1,4 +1,4 @@
-package com.developer.android.dev.technologia.androidapp.quickcabs.presentation.rideConfirm.components
+package com.developer.android.dev.technologia.androidapp.quickcabs.presentation.screens.rideConfirm.components
 
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth

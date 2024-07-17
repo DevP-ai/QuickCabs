@@ -1,4 +1,4 @@
-package com.developer.android.dev.technologia.androidapp.quickcabs.presentation.confirmPickUpScreen
+package com.developer.android.dev.technologia.androidapp.quickcabs.presentation.screens.confirmPickUpScreen
 
 import android.annotation.SuppressLint
 import androidx.activity.compose.BackHandler
@@ -63,8 +63,8 @@ import com.developer.android.dev.technologia.androidapp.quickcabs.presentation.c
 import com.developer.android.dev.technologia.androidapp.quickcabs.presentation.common.QuickLoader
 import com.developer.android.dev.technologia.androidapp.quickcabs.presentation.common.UberDivider
 import com.developer.android.dev.technologia.androidapp.quickcabs.presentation.common.bottomSheet.QuickCabBottomSheetScaffold
-import com.developer.android.dev.technologia.androidapp.quickcabs.presentation.finalisingDriver.FinalisingDriverScreen
-import com.developer.android.dev.technologia.androidapp.quickcabs.presentation.rideConfirm.RideConfirmedScreen
+import com.developer.android.dev.technologia.androidapp.quickcabs.presentation.screens.finalisingDriver.FinalisingDriverScreen
+import com.developer.android.dev.technologia.androidapp.quickcabs.presentation.screens.rideConfirm.RideConfirmedScreen
 import com.developer.android.dev.technologia.androidapp.quickcabs.ui.theme.colorGrayExtraLight
 import com.developer.android.dev.technologia.androidapp.quickcabs.ui.theme.colorLocationUI
 import com.developer.android.dev.technologia.androidapp.quickcabs.ui.theme.colorUberGrayBg

@@ -1,4 +1,4 @@
-package com.developer.android.dev.technologia.androidapp.quickcabs.presentation.finalisingDriver
+package com.developer.android.dev.technologia.androidapp.quickcabs.presentation.screens.finalisingDriver
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -25,8 +25,8 @@ import androidx.compose.ui.unit.dp
 import com.developer.android.dev.technologia.androidapp.quickcabs.R
 import com.developer.android.dev.technologia.androidapp.quickcabs.presentation.common.UberBottomSheetListItem
 import com.developer.android.dev.technologia.androidapp.quickcabs.presentation.common.UberDivider
-import com.developer.android.dev.technologia.androidapp.quickcabs.presentation.finalisingDriver.component.HighlightItem
-import com.developer.android.dev.technologia.androidapp.quickcabs.presentation.finalisingDriver.component.ProgressBarAnimation
+import com.developer.android.dev.technologia.androidapp.quickcabs.presentation.screens.finalisingDriver.component.HighlightItem
+import com.developer.android.dev.technologia.androidapp.quickcabs.presentation.screens.finalisingDriver.component.ProgressBarAnimation
 import com.developer.android.dev.technologia.androidapp.quickcabs.ui.theme.spacing
 import com.developer.android.dev.technologia.androidapp.quickcabs.utils.LargeScreenChildMaxWidth
 import com.developer.android.dev.technologia.androidapp.quickcabs.utils.rememberIsMobileDevice

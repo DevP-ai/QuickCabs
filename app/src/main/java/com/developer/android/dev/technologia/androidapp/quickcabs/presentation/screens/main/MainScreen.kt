@@ -4,8 +4,8 @@ import androidx.compose.runtime.Composable
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
-import com.developer.android.dev.technologia.androidapp.quickcabs.presentation.confirmPickUpScreen.ConfirmPickupScreen
-import com.developer.android.dev.technologia.androidapp.quickcabs.presentation.paymentOptions.PaymentOptionsScreen
+import com.developer.android.dev.technologia.androidapp.quickcabs.presentation.screens.confirmPickUpScreen.ConfirmPickupScreen
+import com.developer.android.dev.technologia.androidapp.quickcabs.presentation.screens.paymentOptions.PaymentOptionsScreen
 import com.developer.android.dev.technologia.androidapp.quickcabs.presentation.screens.Screens
 import com.developer.android.dev.technologia.androidapp.quickcabs.presentation.screens.home.HomeScreen
 import com.developer.android.dev.technologia.androidapp.quickcabs.presentation.screens.wheretogo.LocationSearchScreen
@@ -36,6 +36,6 @@ fun MainScreen(
         composable("LocationSearchScreen"){ LocationSearchScreen(navHostController = navHostController) }
         composable("MapWithCab"){ MapWithCab(navHostController = navHostController) }
         composable("PaymentOptionsScreen"){ PaymentOptionsScreen(navigationController = navHostController) }
-        composable("ConfirmPickupScreen"){ ConfirmPickupScreen(navHostController = navHostController)}
+        composable("ConfirmPickupScreen"){ ConfirmPickupScreen(navHostController = navHostController) }
     }
 }

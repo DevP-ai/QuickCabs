@@ -1,4 +1,4 @@
-package com.developer.android.dev.technologia.androidapp.quickcabs.presentation.rideConfirm
+package com.developer.android.dev.technologia.androidapp.quickcabs.presentation.screens.rideConfirm
 
 import androidx.activity.compose.BackHandler
 import androidx.compose.foundation.Image
@@ -28,10 +28,10 @@ import androidx.compose.ui.unit.dp
 import com.developer.android.dev.technologia.androidapp.quickcabs.R
 import com.developer.android.dev.technologia.androidapp.quickcabs.presentation.common.UberBottomSheetListItem
 import com.developer.android.dev.technologia.androidapp.quickcabs.presentation.common.UberDivider
-import com.developer.android.dev.technologia.androidapp.quickcabs.presentation.rideConfirm.components.BottomActions
-import com.developer.android.dev.technologia.androidapp.quickcabs.presentation.rideConfirm.components.DescriptionTopBar
-import com.developer.android.dev.technologia.androidapp.quickcabs.presentation.rideConfirm.components.DriverDescription
-import com.developer.android.dev.technologia.androidapp.quickcabs.presentation.rideConfirm.components.RidePin
+import com.developer.android.dev.technologia.androidapp.quickcabs.presentation.screens.rideConfirm.components.BottomActions
+import com.developer.android.dev.technologia.androidapp.quickcabs.presentation.screens.rideConfirm.components.DescriptionTopBar
+import com.developer.android.dev.technologia.androidapp.quickcabs.presentation.screens.rideConfirm.components.DriverDescription
+import com.developer.android.dev.technologia.androidapp.quickcabs.presentation.screens.rideConfirm.components.RidePin
 import com.developer.android.dev.technologia.androidapp.quickcabs.ui.theme.spacing
 import com.developer.android.dev.technologia.androidapp.quickcabs.utils.rememberIsMobileDevice
 

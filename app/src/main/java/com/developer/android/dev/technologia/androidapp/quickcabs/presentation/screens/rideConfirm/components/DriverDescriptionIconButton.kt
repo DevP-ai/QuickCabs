@@ -1,4 +1,4 @@
-package com.developer.android.dev.technologia.androidapp.quickcabs.presentation.rideConfirm.components
+package com.developer.android.dev.technologia.androidapp.quickcabs.presentation.screens.rideConfirm.components
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.padding
