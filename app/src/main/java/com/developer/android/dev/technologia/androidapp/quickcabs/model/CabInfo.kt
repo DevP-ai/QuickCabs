@@ -14,7 +14,7 @@ data class CabInfo(
     var isChecked: Boolean = false
 )
 
-val UberCabInfoSaver = run {
+val CabInfoSaver = run {
     val cabInfo = "Name"
     val cabPrice = "cabPrice"
     val carTime = "carTime"
