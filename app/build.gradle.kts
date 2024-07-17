@@ -128,6 +128,12 @@ dependencies {
     implementation ("androidx.compose.material:material-icons-core:1.6.8")
     implementation ("androidx.compose.material:material-icons-extended:1.6.8")
 
+    //accompanist
+    val accompanist_version = "0.25.1"
+    implementation ("com.google.accompanist:accompanist-systemuicontroller:$accompanist_version")
+    implementation ("com.google.accompanist:accompanist-flowlayout:$accompanist_version")
+    implementation ("com.google.accompanist:accompanist-pager:$accompanist_version")
+    implementation ("com.google.accompanist:accompanist-pager-indicators:$accompanist_version")
 
 
 }

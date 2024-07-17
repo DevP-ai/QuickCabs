@@ -255,7 +255,7 @@ fun CabsListItemText(
 
 
 @Composable
-fun UberCabsListItemDetails(cabInfo: CabInfo) {
+fun QuickCabsListItemDetails(cabInfo: CabInfo) {
     Column(
         horizontalAlignment = Alignment.CenterHorizontally,
         modifier = Modifier
