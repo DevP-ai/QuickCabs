@@ -103,7 +103,7 @@ dependencies {
     //room
     implementation(libs.androidx.room.runtime)
     annotationProcessor(libs.androidx.room.compiler)
-    kapt(libs.androidx.room.compiler)
+//    kapt(libs.androidx.room.compiler)
     implementation(libs.androidx.room.ktx)
     implementation(libs.androidx.room.paging)
 
@@ -124,6 +124,11 @@ dependencies {
     implementation(libs.vico.compose)
     implementation(libs.vico.compose.m3)
     implementation(libs.vico.core)
+
+    implementation ("androidx.compose.material:material-icons-core:1.6.8")
+    implementation ("androidx.compose.material:material-icons-extended:1.6.8")
+
+
 
 }
 kapt {
