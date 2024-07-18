@@ -28,6 +28,7 @@ import androidx.compose.foundation.layout.navigationBars
 import androidx.compose.foundation.layout.navigationBarsPadding
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.statusBarsPadding
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.layout.wrapContentHeight
 import androidx.compose.material.BottomSheetValue
 import androidx.compose.material.ExperimentalMaterialApi
@@ -73,6 +74,7 @@ import com.developer.android.dev.technologia.androidapp.quickcabs.presentation.c
 import com.developer.android.dev.technologia.androidapp.quickcabs.presentation.common.bottomSheet.SheetCollapsed
 import com.developer.android.dev.technologia.androidapp.quickcabs.presentation.common.bottomSheet.SheetExpanded
 import com.developer.android.dev.technologia.androidapp.quickcabs.ui.theme.colorBlack
+import com.developer.android.dev.technologia.androidapp.quickcabs.ui.theme.colorGrayExtraLight
 import com.developer.android.dev.technologia.androidapp.quickcabs.ui.theme.colorWhite
 import com.developer.android.dev.technologia.androidapp.quickcabs.ui.theme.spacing
 import com.developer.android.dev.technologia.androidapp.quickcabs.utils.bitmapDescriptorFromVector
@@ -82,6 +84,8 @@ import com.developer.android.dev.technologia.androidapp.quickcabs.utils.clickabl
 import com.developer.android.dev.technologia.androidapp.quickcabs.utils.defaultCameraPosition
 import com.developer.android.dev.technologia.androidapp.quickcabs.utils.pathLatLongsFirst
 import com.developer.android.dev.technologia.androidapp.quickcabs.utils.rememberBottomSheetProgress
+import com.developer.android.dev.technologia.androidapp.quickcabs.utils.rememberDeviceHeight
+import com.developer.android.dev.technologia.androidapp.quickcabs.utils.rememberIsMobileDevice
 import com.google.android.gms.maps.model.BitmapDescriptorFactory
 import com.google.android.gms.maps.model.JointType
 import com.google.android.gms.maps.model.LatLngBounds
@@ -100,6 +104,13 @@ fun MapWithCab(
     navHostController: NavHostController,
 ) {
     val scope = rememberCoroutineScope()
+    val dynamicWidth = Modifier.then(
+        if (rememberIsMobileDevice()) {
+            Modifier.fillMaxWidth()
+        } else {
+            Modifier.width(MaterialTheme.spacing.minWidth)
+        }
+    )
     val cabMapWithCabViewModel = MapWithCabViewModel()
 
     /*Google maps related properties*/
@@ -123,6 +134,7 @@ fun MapWithCab(
     }
 
     /*Bottom sheet related properties*/
+    val isDeviceMobileType = rememberIsMobileDevice()
     val scaffoldState = rememberBottomSheetScaffoldState(
         bottomSheetState = rememberBottomSheetState(BottomSheetValue.Collapsed)
     )
@@ -138,9 +150,9 @@ fun MapWithCab(
     }
 
     // define dynamic height so we can show at least 2 list item of cabs in different screen sizes
-    val sheetPeekHeight = 2f
+    val sheetPeekHeight = rememberDeviceHeight().div(if (isDeviceMobileType) 2f else 1.5f)
 
-    val cabTypeGoogleMap: @Composable (modifier: Modifier) -> Unit = {
+    val cabTypeGoogleMap: @Composable (modifier: Modifier) -> Unit = remember(isDeviceMobileType) {
         movableContentOf { modifier: Modifier ->
             CabTypeGoogleMap(modifier = modifier)
         }
@@ -156,7 +168,11 @@ fun MapWithCab(
                 )
                 .graphicsLayer(alpha = 1f - scaffoldState.rememberBottomSheetProgress()),
             iconId = R.drawable.baseline_arrow_back_24,
-            backgroundColor = MaterialTheme.colorScheme.onPrimary
+            backgroundColor = if (rememberIsMobileDevice()) {
+                MaterialTheme.colorScheme.onPrimary
+            } else {
+                colorGrayExtraLight
+            }
         ) {
             when {
                 scaffoldState.bottomSheetState.isExpanded -> {
@@ -177,8 +193,7 @@ fun MapWithCab(
         val currentFraction = scaffoldState.rememberBottomSheetProgress()
 
         Box(
-            modifier = Modifier
-                .fillMaxWidth()
+            modifier = dynamicWidth
                 .background(colorBlack.copy(alpha = currentFraction))
                 .zIndex(2f)
                 .graphicsLayer(alpha = currentFraction)
@@ -212,8 +227,17 @@ fun MapWithCab(
                 )
             }
         }
+        if (!isDeviceMobileType) {
+            Box(
+                contentAlignment = Alignment.TopStart,
+                modifier = Modifier
+                    .fillMaxSize()
+            ) {
+                cabTypeGoogleMap(Modifier)
+            }
+        }
         Box(
-            modifier = Modifier.fillMaxWidth(),
+            modifier = if (isDeviceMobileType) Modifier.fillMaxWidth() else Modifier,
             contentAlignment = Alignment.BottomCenter
         ) {
             QuickCabBottomSheetScaffold(
@@ -318,8 +342,7 @@ fun MapWithCab(
             Column(
                 verticalArrangement = Arrangement.Center,
                 horizontalAlignment = Alignment.CenterHorizontally,
-                modifier = Modifier
-                    .fillMaxWidth()
+                modifier = dynamicWidth
                     .wrapContentHeight()
                     .graphicsLayer { translationY = translationPx * bottomSheetProgress }
                     .background(colorWhite)
