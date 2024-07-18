@@ -24,7 +24,7 @@ fun MainScreen(
 ) {
     NavHost(
         navController = navHostController,
-        startDestination = "HomeScreen") {
+        startDestination = "AuthScreen") {
         composable("AuthScreen"){ AuthScreen(navHostController = navHostController)}
         composable("PhoneNumberScreen"){ PhoneNumberScreen(navHostController=navHostController)}
         composable("OTPScreen"){ OTPScreen(navHostController = navHostController)}

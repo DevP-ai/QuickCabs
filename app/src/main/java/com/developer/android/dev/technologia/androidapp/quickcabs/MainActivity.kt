@@ -33,7 +33,6 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             QuickCabsTheme {
-                PermissionRequest()
                Surface(
                    modifier = Modifier.fillMaxSize(),
                    color = MaterialTheme.colorScheme.surface
@@ -44,53 +43,53 @@ class MainActivity : ComponentActivity() {
         }
     }
 
-    @Composable
-    private fun PermissionRequest() {
-        var showPermissionDeclinedRationale by rememberSaveable { mutableStateOf(false) }
-
-        var showRationale by rememberSaveable { mutableStateOf(false) }
-
-        val permissionLauncher = rememberLauncherForActivityResult(
-            contract = ActivityResultContracts.RequestMultiplePermissions(),
-            onResult = {
-                it.forEach{(permission,isGranted)->
-                    if(!isGranted && PermissionUtils.locationPermissions.contains(permission)){
-                        showPermissionDeclinedRationale = false
-                    }
-                }
-            }
-        )
-
-        if(showPermissionDeclinedRationale){
-            LocationPermissionRequestDialog(
-                onDismissClick = {
-                    if(!hasLocationPermission())
-                        finish()
-                    else showPermissionDeclinedRationale = false
-                },
-                onOkClick = {openAppSetting()}
-            )
-        }
-
-        if (showRationale)
-            LocationPermissionRequestDialog(
-                onDismissClick = ::finish,
-                onOkClick = {
-                    showRationale = false
-                    permissionLauncher.launch(PermissionUtils.allPermissions)
-                }
-            )
-
-        LaunchedEffect(key1 = Unit) {
-            when {
-                hasAllPermission() -> return@LaunchedEffect
-                PermissionUtils.locationPermissions.any { shouldShowRequestPermissionRationale(it) } -> showRationale =
-                    true
-
-                else -> permissionLauncher.launch(PermissionUtils.allPermissions)
-            }
-        }
-    }
+//    @Composable
+//    private fun PermissionRequest() {
+//        var showPermissionDeclinedRationale by rememberSaveable { mutableStateOf(false) }
+//
+//        var showRationale by rememberSaveable { mutableStateOf(false) }
+//
+//        val permissionLauncher = rememberLauncherForActivityResult(
+//            contract = ActivityResultContracts.RequestMultiplePermissions(),
+//            onResult = {
+//                it.forEach{(permission,isGranted)->
+//                    if(!isGranted && PermissionUtils.locationPermissions.contains(permission)){
+//                        showPermissionDeclinedRationale = false
+//                    }
+//                }
+//            }
+//        )
+//
+//        if(showPermissionDeclinedRationale){
+//            LocationPermissionRequestDialog(
+//                onDismissClick = {
+//                    if(!hasLocationPermission())
+//                        finish()
+//                    else showPermissionDeclinedRationale = false
+//                },
+//                onOkClick = {openAppSetting()}
+//            )
+//        }
+//
+//        if (showRationale)
+//            LocationPermissionRequestDialog(
+//                onDismissClick = ::finish,
+//                onOkClick = {
+//                    showRationale = false
+//                    permissionLauncher.launch(PermissionUtils.allPermissions)
+//                }
+//            )
+//
+//        LaunchedEffect(key1 = Unit) {
+//            when {
+//                hasAllPermission() -> return@LaunchedEffect
+//                PermissionUtils.locationPermissions.any { shouldShowRequestPermissionRationale(it) } -> showRationale =
+//                    true
+//
+//                else -> permissionLauncher.launch(PermissionUtils.allPermissions)
+//            }
+//        }
+//    }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)

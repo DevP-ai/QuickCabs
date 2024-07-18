@@ -231,7 +231,7 @@ fun Language() {
     ElevatedCard(
         modifier = Modifier
             .fillMaxWidth()
-            .size(130.dp),
+            .size(120.dp),
         elevation = CardDefaults.elevatedCardElevation(defaultElevation = 4.dp)
     ){
         Column(
@@ -250,7 +250,7 @@ fun Settings() {
     ElevatedCard(
         modifier = Modifier
             .fillMaxWidth()
-            .size(90.dp),
+            .size(110.dp),
         elevation = CardDefaults.elevatedCardElevation(defaultElevation = 4.dp)
     ){ 
         Column(
